@@ -1,6 +1,5 @@
 from .bcra import BCRA, Monetarias
-from .google_sheet import GoogleSheet
-from .utils import project_path
+from .utils import project_paths
 
 
-__all__ = [BCRA, GoogleSheet, Monetarias, project_path]
+__all__ = [BCRA, Monetarias, project_paths]
