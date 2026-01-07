@@ -8,5 +8,9 @@ dependencies = [
     "google-api-python-client>=2.184.0",
     "google-auth-httplib2>=0.2.0",
     "google-auth-oauthlib>=1.2.2",
+    "google-sheet-util",
     "requests>=2.32.5",
 ]
+
+[tool.uv.sources]
+google-sheet-util = { git = "https://github.com/agusherrera99/google_sheet_util", rev = "dev" }

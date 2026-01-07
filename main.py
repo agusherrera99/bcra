@@ -1,4 +1,5 @@
-from src import GoogleSheet, Monetarias
+from src import Monetarias, project_paths
+from google_sheet_util import GoogleSheet
 
 
 def main():
@@ -29,7 +30,11 @@ def main():
 
         bcra_data = monetarias.get_data(sheet_name, from_date)
 
-        google_sheet = GoogleSheet(spreadsheet_id=sheet_id)
+        google_sheet = GoogleSheet(
+            credentials=project_paths.get_credentials(),
+            token=project_paths.get_token(),
+            spreadsheet_id=sheet_id
+        )
         google_sheet.upload_to_sheets(
             fieldnames=['fecha', 'valor'],
             data_dicts=bcra_data['results'][0]['detalle']
