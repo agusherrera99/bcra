@@ -14,6 +14,7 @@ COPY . .
 # Deshabilitar dependencias de desarrollo
 ENV UV_NO_DEV=1
 # Sincronizar el proyecto en un nuevo ambiente, asegurando que el lockfile este actualizado.
+RUN uv add git+https://github.com/agusherrera99/google_sheet_util.git@main
 RUN uv sync --locked
 
 
