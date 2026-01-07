@@ -10,4 +10,4 @@ wheels/
 .venv
 
 # Custom
-secrets/*
+secrets/*.json
