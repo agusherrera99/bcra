@@ -60,7 +60,8 @@ class Monetarias(BCRA):
                 verify=False
             )
             if req.status_code == 200:
-                return req.json()
+                data = req.json()
+                return data['results'][0]['detalle'] if data else None
             return None
         except Exception as error:
             print(f"Error al intentar obtener datos: {error}")
