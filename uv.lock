@@ -19,7 +19,7 @@ requires-dist = [
     { name = "google-api-python-client", specifier = ">=2.184.0" },
     { name = "google-auth-httplib2", specifier = ">=0.2.0" },
     { name = "google-auth-oauthlib", specifier = ">=1.2.2" },
-    { name = "google-sheet-util", git = "https://github.com/agusherrera99/google_sheet_util?rev=dev" },
+    { name = "google-sheet-util", git = "https://github.com/agusherrera99/google_sheet_util.git?rev=main" },
     { name = "requests", specifier = ">=2.32.5" },
 ]
 
@@ -157,7 +157,7 @@ wheels = [
 [[package]]
 name = "google-sheet-util"
 version = "0.1.0"
-source = { git = "https://github.com/agusherrera99/google_sheet_util?rev=dev#918e3c3a80c05d7df3df33d1a5ad609fb017a8db" }
+source = { git = "https://github.com/agusherrera99/google_sheet_util.git?rev=main#2d3b05e6520e7653516c93b2970b384b735b01d0" }
 dependencies = [
     { name = "google-api-python-client" },
     { name = "google-auth-httplib2" },
