@@ -1,1 +1,1 @@
-0 08 * * * cd /app/crons && /usr/local/bin/uv run python3 tasa_cambio_minorista.py >> /var/log/tasa_cambio_minorista.log 2>&1
+0 08 * * * cd /app && /usr/local/bin/uv run python3 -m crons.tasa_cambio_minorista >> /var/log/tasa_cambio_minorista.log 2>&1

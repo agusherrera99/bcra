@@ -1,1 +1,1 @@
-0 08 15 * * cd /app/crons && /usr/local/bin/uv run python3 ipc_interanual.py >> /var/log/ipc_interanual.log 2>&1
+0 08 15 * * cd /app && /usr/local/bin/uv run python3 -m crons.ipc_interanual >> /var/log/ipc_interanual.log 2>&1
