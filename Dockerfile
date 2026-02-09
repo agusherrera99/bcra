@@ -1,5 +1,5 @@
 FROM ubuntu:latest
-MAINTAINER agustinherrera.dev@gmail.com
+LABEL mantainer="agustinherrera.dev@gmail.com"
 
 # Instalar cron
 RUN apt-get update && \
