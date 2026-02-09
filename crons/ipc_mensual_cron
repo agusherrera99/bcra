@@ -1,0 +1,1 @@
+0 08 15 * * cd /app/crons && /usr/local/bin/uv run python3 ipc_mensual.py >> /var/log/ipc_mensual.log 2>&1

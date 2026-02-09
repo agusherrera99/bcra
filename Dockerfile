@@ -1,9 +1,9 @@
-FROM python:3.12-slim-trixie
+FROM ubuntu:latest
+MAINTAINER agustinherrera.dev@gmail.com
 
 # Instalar cron
 RUN apt-get update && \
-    apt-get install -y git && \
-    apt-get install -y cron && \
+    apt-get install -y git cron && \
     rm -rf /var/lib/apt/lists/*
 
 # Instalar UV
@@ -18,8 +18,7 @@ ENV UV_NO_DEV=1
 RUN uv add git+https://github.com/agusherrera99/google_sheet_util.git@main
 RUN uv sync --locked
 
-
-COPY ./bcra_cronjob /etc/cron.d/bcra_cronjob
-RUN chmod 0644 /etc/cron.d/bcra_cronjob
+RUN cat crons/*_cron > final_cron && crontab final_cron
+RUN touch /var/log/ipc_interanual.log /var/log/ipc_mensual.log /var/log/tasa_depositos_30.log /var/log/tipo_cambio_minorista.log
 
 CMD ["cron", "-f"]

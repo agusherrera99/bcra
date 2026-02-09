@@ -6,35 +6,8 @@ def main():
     monetarias = Monetarias()
 
     sheet_map = {
-        'tipo_cambio_minorista': {
-            'id': '184L6JQn2TZIy_5rzZbIhKA78p03BlBhVZLGXIW8Mi9o',
-            'from_date': '2019-12-31',
-            'fieldnames': ['fecha', 'valor'],
-            'column_formats': {
-                'fecha': 'date',
-                'valor': 'currency'
-            }
-        },
-        'tasa_depositos_30': {
-            'id': '1WCA_-_Xaq1bZcStdyVyxNUrdsdqkDLQ6hjODyH3FcIQ',
-            'from_date': '2019-12-31',
-            'fieldnames': ['fecha', 'valor'],
-            'column_formats': {
-                'fecha': 'date',
-                'valor': 'currency'
-            }
-        },
         'ipc_interanual': {
             'id': '1Cjbw6OfPJ9CkB8SmY73ZYlvc2afeMNltlBARL7TK95I',
-            'from_date': '2019-12-31',
-            'fieldnames': ['fecha', 'valor'],
-            'column_formats': {
-                'fecha': 'date',
-                'valor': 'currency'
-            }
-        },
-        'ipc_mensual': {
-            'id': '1bFUt87NufZOi4QbYAtO0Yz-iNKFMSfEGVEW0iMkiuOg',
             'from_date': '2019-12-31',
             'fieldnames': ['fecha', 'valor'],
             'column_formats': {
