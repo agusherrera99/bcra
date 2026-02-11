@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY pyproject.toml uv.lock ./
 
 RUN --mount=type=cache,target=/root/.cache/uv \
-    uv lock --update-package google-sheet-util && \
+    uv lock --upgrade-package google-sheet-util && \
     uv sync --frozen
 
 FROM python:3.13-slim-bookworm
