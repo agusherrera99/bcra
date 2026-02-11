@@ -13,4 +13,4 @@ dependencies = [
 ]
 
 [tool.uv.sources]
-google-sheet-util = { git = "https://github.com/agusherrera99/google_sheet_util.git", rev = "main" }
+google-sheet-util = { git = "https://github.com/agusherrera99/google_sheet_util.git", branch = "main" }
