@@ -1,24 +1,39 @@
-FROM ubuntu:latest
-LABEL mantainer="agustinherrera.dev@gmail.com"
+FROM ghcr.io/astral-sh/uv:python3.13-bookworm-slim AS builder
 
-# Instalar cron
-RUN apt-get update && \
-    apt-get install -y git cron && \
-    rm -rf /var/lib/apt/lists/*
+ENV UV_COMPILE_BYTECODE=1 UV_LINK_MODE=copy
+WORKDIR /app
 
-# Instalar UV
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY pyproject.toml uv.lock ./
+
+RUN --mount=type=cache,target=/root/.cache/uv \
+    uv lock --update-package google-sheet-util && \
+    uv sync --frozen
+
+FROM python:3.13-slim-bookworm
+
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 WORKDIR /app
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    cron \
+    git \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY --from=builder /app/.venv /app/.venv
+ENV PATH="/app/.venv/bin:$PATH"
+
 COPY . .
 
-# Deshabilitar dependencias de desarrollo
-ENV UV_NO_DEV=1
-# Sincronizar el proyecto en un nuevo ambiente, asegurando que el lockfile este actualizado.
-RUN uv add git+https://github.com/agusherrera99/google_sheet_util.git@main
-RUN uv sync --locked
+RUN cat crons/*_cron > /etc/cron.d/bcra-cron && \
+    chmod 0644 /etc/cron.d/bcra-cron && \
+    crontab /etc/cron.d/bcra-cron
 
-RUN cat crons/*_cron > final_cron && crontab final_cron
-RUN touch /var/log/ipc_interanual.log /var/log/ipc_mensual.log /var/log/tasa_depositos_30.log /var/log/tipo_cambio_minorista.log
+RUN touch /var/log/cron.log
 
 CMD ["cron", "-f"]
