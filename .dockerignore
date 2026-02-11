@@ -1,0 +1,24 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+.pytest_cache/
+.mypy_cache/
+
+# UV
+.uv
+
+# Docker
+Dockerfile
+.dockerignore
+
+# Logs y temporales
+*.log
+.DS_Store
