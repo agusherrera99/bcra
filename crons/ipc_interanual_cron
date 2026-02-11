@@ -1,1 +1,2 @@
+PATH=/app/.venv/bin:/usr/local/bin:/usr/bin:/bin
 0 08 15 * * cd /app && /usr/local/bin/uv run python3 -m crons.ipc_interanual >> /var/log/ipc_interanual.log 2>&1

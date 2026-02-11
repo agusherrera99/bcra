@@ -1,1 +1,2 @@
-0 08 * * * cd /app && /usr/local/bin/uv run python3 -m crons.tasa_cambio_minorista >> /var/log/tasa_cambio_minorista.log 2>&1
+PATH=/app/.venv/bin:/usr/local/bin:/usr/bin:/bin
+0 08 * * * cd /app && /usr/local/bin/uv run python3 -m crons.tipo_cambio_minorista >> /var/log/tasa_cambio_minorista.log 2>&1

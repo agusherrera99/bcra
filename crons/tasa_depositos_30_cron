@@ -1,1 +1,2 @@
+PATH=/app/.venv/bin:/usr/local/bin:/usr/bin:/bin
 0 08 * * * cd /app && /usr/local/bin/uv run python3 -m crons.tasa_depositos_30 >> /var/log/tasa_depositos_30.log 2>&1
